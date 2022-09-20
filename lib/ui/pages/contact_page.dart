@@ -1,16 +1,15 @@
 import 'package:atv_flutter_01/application/contracts/contact_repository.dart';
 import 'package:atv_flutter_01/application/entities/contact_entity.dart';
+import 'package:atv_flutter_01/ui/pages/contact_list_page.dart';
 import 'package:atv_flutter_01/validators/contact_validator.dart';
 import 'package:flutter/material.dart';
 
 class ContactPage extends StatefulWidget {
   final ContactRepository contactRepository;
-  final void Function() togglePages;
 
   const ContactPage({
     Key? key,
     required this.contactRepository,
-    required this.togglePages,
   }) : super(key: key);
 
   @override
@@ -36,6 +35,12 @@ class _ContactPageState extends State<ContactPage> {
     setState(() => cellphone = inputCellphone);
   }
 
+  void _emptyFormFields() {
+    setState(() => {name = '', email = '', cellphone = ''});
+
+    _formKey.currentState?.reset();
+  }
+
   void _onFormButtonPress(BuildContext context) {
     if (!_formKey.currentState!.validate()) {
       return;
@@ -49,7 +54,17 @@ class _ContactPageState extends State<ContactPage> {
       );
 
       widget.contactRepository.addContact(newContact);
-      widget.togglePages();
+
+      _emptyFormFields();
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ContactListPage(
+            contactRepository: widget.contactRepository,
+          ),
+        ),
+      );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -88,7 +103,7 @@ class _ContactPageState extends State<ContactPage> {
                 child: Column(
                   children: [
                     TextFormField(
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       style: const TextStyle(
                         color: Colors.white,
@@ -126,7 +141,7 @@ class _ContactPageState extends State<ContactPage> {
                     ),
                     const SizedBox(height: 16),
                     TextFormField(
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       style: const TextStyle(
                         color: Colors.white,

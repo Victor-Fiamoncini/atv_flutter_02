@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 
 class ContactListPage extends StatelessWidget {
   final ContactRepository contactRepository;
-  final void Function() togglePages;
 
   const ContactListPage({
     Key? key,
     required this.contactRepository,
-    required this.togglePages,
   }) : super(key: key);
+
+  void _onBackButtonPressed(BuildContext context) {
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,10 @@ class ContactListPage extends StatelessWidget {
         backgroundColor: Colors.cyan,
         elevation: 0,
         title: const Text('Lista de Contatos'),
-        leading: BackButton(color: Colors.white, onPressed: togglePages),
+        leading: BackButton(
+          color: Colors.white,
+          onPressed: () => _onBackButtonPressed(context),
+        ),
       ),
       body: SizedBox(
         width: double.infinity,
