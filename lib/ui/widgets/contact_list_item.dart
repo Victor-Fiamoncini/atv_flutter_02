@@ -11,26 +11,28 @@ class ContactListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Card(
       margin: const EdgeInsets.only(top: 16),
       elevation: 0,
-      color: Colors.cyan,
+      color: theme.colorScheme.primary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(28),
       ),
       child: ListTile(
         title: Text(
           '${contact.name} - ${contact.email}',
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w500,
-            color: Colors.white,
+            color: theme.colorScheme.secondary,
           ),
         ),
         subtitle: Text(
           'Celular: ${contact.cellphone}',
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w500,
-            color: Colors.white,
+            color: theme.colorScheme.secondary,
           ),
         ),
       ),

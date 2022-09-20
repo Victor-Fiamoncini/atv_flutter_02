@@ -16,15 +16,19 @@ class ContactListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final contacts = contactRepository.getAll();
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
+        backgroundColor: theme.colorScheme.primary,
         elevation: 0,
-        title: const Text('Lista de Contatos'),
+        title: Text(
+          'Lista de Contatos',
+          style: TextStyle(color: theme.colorScheme.secondary),
+        ),
         leading: BackButton(
-          color: Colors.white,
+          color: theme.colorScheme.secondary,
           onPressed: () => _onBackButtonPressed(context),
         ),
       ),

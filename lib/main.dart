@@ -23,10 +23,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Google',
-        brightness: Brightness.light,
-        primaryColor: Colors.cyan,
         hintColor: Colors.white,
-        errorColor: Colors.red,
+        colorScheme: const ColorScheme(
+          brightness: Brightness.light,
+          primary: Colors.cyan,
+          onPrimary: Colors.cyan,
+          secondary: Colors.white,
+          onSecondary: Colors.white,
+          error: Colors.red,
+          onError: Colors.red,
+          background: Colors.black,
+          onBackground: Colors.black,
+          surface: Colors.white,
+          onSurface: Colors.white,
+        ),
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: Colors.cyan,
         ),

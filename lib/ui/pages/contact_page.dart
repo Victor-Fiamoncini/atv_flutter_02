@@ -79,11 +79,16 @@ class _ContactPageState extends State<ContactPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: theme.colorScheme.primary,
         elevation: 0,
-        title: const Text('Cadastro de Contatos'),
+        title: Text(
+          'Cadastro de Contatos',
+          style: TextStyle(color: theme.colorScheme.secondary),
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -106,7 +111,7 @@ class _ContactPageState extends State<ContactPage> {
                     TextFormField(
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
-                      style: defaultTextFormFieldTextStyle,
+                      style: defaultTextFormFieldTextStyle(theme),
                       decoration: const InputDecoration(hintText: 'Nome'),
                       validator: ContactValidator.nameField,
                       onChanged: _onNameFieldChange,
@@ -115,7 +120,7 @@ class _ContactPageState extends State<ContactPage> {
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
-                      style: defaultTextFormFieldTextStyle,
+                      style: defaultTextFormFieldTextStyle(theme),
                       decoration: const InputDecoration(hintText: 'E-mail'),
                       validator: ContactValidator.emailField,
                       onChanged: _onEmailFieldChange,
@@ -124,7 +129,7 @@ class _ContactPageState extends State<ContactPage> {
                     TextFormField(
                       keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.next,
-                      style: defaultTextFormFieldTextStyle,
+                      style: defaultTextFormFieldTextStyle(theme),
                       decoration: const InputDecoration(hintText: 'Celular'),
                       validator: ContactValidator.cellphoneField,
                       onChanged: _onCellphoneFieldChange,
@@ -132,9 +137,9 @@ class _ContactPageState extends State<ContactPage> {
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () => _onFormButtonPress(context),
-                      child: const Text(
+                      child: Text(
                         'Enviar',
-                        style: defaultElevatedButtonTextStyle,
+                        style: defaultElevatedButtonTextStyle(theme),
                       ),
                     ),
                   ],
