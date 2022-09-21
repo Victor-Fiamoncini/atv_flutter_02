@@ -1,8 +1,8 @@
-import 'package:atv_flutter_01/application/contracts/contact_repository.dart';
-import 'package:atv_flutter_01/application/entities/contact_entity.dart';
-import 'package:atv_flutter_01/ui/pages/contact_list_page.dart';
-import 'package:atv_flutter_01/ui/styles.dart';
-import 'package:atv_flutter_01/validators/contact_validator.dart';
+import 'package:atv_flutter_02/application/contracts/contact_repository.dart';
+import 'package:atv_flutter_02/application/entities/contact_entity.dart';
+import 'package:atv_flutter_02/ui/pages/contact_list_page.dart';
+import 'package:atv_flutter_02/ui/styles.dart';
+import 'package:atv_flutter_02/validators/contact_validator.dart';
 import 'package:flutter/material.dart';
 
 class ContactPage extends StatefulWidget {

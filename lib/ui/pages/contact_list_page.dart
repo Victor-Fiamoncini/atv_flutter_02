@@ -1,5 +1,5 @@
-import 'package:atv_flutter_01/application/contracts/contact_repository.dart';
-import 'package:atv_flutter_01/ui/widgets/contact_list_item.dart';
+import 'package:atv_flutter_02/application/contracts/contact_repository.dart';
+import 'package:atv_flutter_02/ui/widgets/contact_list_item.dart';
 import 'package:flutter/material.dart';
 
 class ContactListPage extends StatelessWidget {
